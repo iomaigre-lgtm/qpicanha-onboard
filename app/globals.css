@@ -1,6 +1,4 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
 html {
   height: 100%;
@@ -41,7 +39,8 @@ body {
 }
 
 .glass-card {
-  @apply bg-gradient-to-b from-white/4 to-white/1 backdrop-blur-[20px] border border-white/10 shadow-[0_4px_24px_-1px_rgba(0,0,0,0.2)];
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.04) 0%, rgba(255, 255, 255, 0.01) 100%);
+  @apply backdrop-blur-[20px] border border-white/10 shadow-[0_4px_24px_-1px_rgba(0,0,0,0.2)];
 }
 
 .noise-overlay {
