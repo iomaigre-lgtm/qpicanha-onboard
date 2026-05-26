@@ -76,7 +76,7 @@ export default function QpicanhConnectPage() {
             <div className="mb-8">
               <div className="bg-white p-4 rounded-lg inline-block animate-glow">
                 <img
-                  src={`data:image/png;base64,${qrCode}`}
+                  src={qrCode.startsWith('data:') ? qrCode : `data:image/png;base64,${qrCode}`}
                   alt="QR Code"
                   className="w-64 h-64"
                 />
