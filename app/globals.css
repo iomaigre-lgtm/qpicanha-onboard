@@ -1,20 +1,13 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 html {
   height: 100%;
 }
 
 body {
-  height: 100vh;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  @apply h-screen antialiased bg-dark text-foreground;
 }
 
 @keyframes float {
@@ -35,15 +28,6 @@ body {
   }
 }
 
-@keyframes spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
 .animate-float {
   animation: float 3s ease-in-out infinite;
 }
@@ -52,42 +36,15 @@ body {
   animation: subtle-glow 3s ease-in-out infinite;
 }
 
-.animate-spin {
-  animation: spin 1s linear infinite;
-}
-
-.bg-dark {
-  background-color: #050505;
-}
-
 .bg-gradient-hero {
   background: linear-gradient(135deg, #050505 0%, rgba(88, 28, 135, 0.1) 50%, rgba(30, 58, 138, 0.1) 100%);
 }
 
-.text-primary {
-  color: #c1ff72;
-}
-
-.bg-primary {
-  background-color: #c1ff72;
-}
-
-.text-foreground {
-  color: #f8fafc;
-}
-
 .glass-card {
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.04) 0%, rgba(255, 255, 255, 0.01) 100%);
-  backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 4px 24px -1px rgba(0, 0, 0, 0.2);
+  @apply bg-gradient-to-b from-white/4 to-white/1 backdrop-blur-[20px] border border-white/10 shadow-[0_4px_24px_-1px_rgba(0,0,0,0.2)];
 }
 
 .noise-overlay {
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: -1;
-  opacity: 0.03;
+  @apply fixed inset-0 pointer-events-none z-[-1] opacity-[0.03];
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
 }
